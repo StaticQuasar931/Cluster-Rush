@@ -3,31 +3,51 @@
 <head>
   <!-- Charset & Viewport -->
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Title (kept simple per your note) -->
-  <title>Google</title>
+  <!-- Canonical & Robots -->
+  <link rel="canonical" href="" id="canonicalLink">
+  <meta name="robots" content="index,follow,max-image-preview:large" />
 
-  <!-- Preload rotating icon images -->
+  <!-- Title (auto-updates from game.html when same-origin) -->
+  <title>Play – StaticQuasar931</title>
+
+  <!-- Base favicon (will be replaced by switcher once game metadata is read) -->
+  <link id="dynamicFavicon" rel="icon" href="https://sites.google.com/favicon.ico" />
+
+  <!-- Primary SEO (keywords/description get updated from game.html if available) -->
+  <meta name="description" content="Play unblocked games in fullscreen — fast loads, school-safe, and Chromebook friendly. This page wraps game.html and inherits metadata when possible." id="metaDescription" />
+  <meta name="keywords" content="unblocked games, fullscreen, Chromebook games, browser games, StaticQuasar931, play online at school" id="metaKeywords" />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- Open Graph / Twitter (og:image will be swapped if game.html provides one) -->
+  <meta property="og:title" content="Play – StaticQuasar931" id="ogTitle" />
+  <meta property="og:description" content="Unblocked fullscreen wrapper for game.html on StaticQuasar931." id="ogDesc" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" id="ogUrl" />
+  <meta property="og:image" content="https://res.cloudinary.com/dcsrqennd/image/upload/v1747533056/raw_um4pvq.png" id="ogImage" />
+  <meta property="og:image:alt" content="StaticQuasar931 — site icon" id="ogImageAlt" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://res.cloudinary.com/dcsrqennd/image/upload/v1747533056/raw_um4pvq.png" id="twImage" />
+  <meta name="twitter:image:alt" content="StaticQuasar931 — site icon" id="twImageAlt" />
+
+  <!-- Preload rotating images -->
   <link rel="preload" as="image" href="https://res.cloudinary.com/dcsrqennd/image/upload/v1747533056/raw_um4pvq.png">
   <link rel="preload" as="image" href="https://res.cloudinary.com/dcsrqennd/image/upload/v1758072526/Join_Our_Discord_StaticQuassar931_lcplrf.png">
   <link rel="preload" as="image" href="https://res.cloudinary.com/dcsrqennd/image/upload/v1747533158/raw_cw34yi.png">
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; background: #000; overflow: hidden; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-
-    /* Fullscreen game */
-    iframe#gameFrame { width: 100vw; height: 100vh; border: 0; display: block; background: #000; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body { height:100%; background:#000; overflow:hidden; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+    iframe#gameFrame { width:100vw; height:100vh; border:0; display:block; background:#000; }
 
     /* Static menu (top-left) */
     #staticMenu{
-      position: fixed; top: 10px; left: 10px; z-index: 9999;
+      position:fixed; top:10px; left:10px; z-index:9999;
       background:#111; color:#0ff; padding:10px 16px; border-radius:10px; font-size:14px;
       animation: glow 2s infinite alternate;
       transition: opacity .35s ease, transform .35s ease, visibility .35s ease;
-      user-select: none;
+      user-select:none;
     }
     #staticMenu a{ color:#0ff; text-decoration:none; font-weight:700; }
     #closeStaticMenu{ margin-left:12px; color:#f55; cursor:pointer; }
@@ -36,7 +56,7 @@
     /* Rotating quick link (bottom-right): Google Form → Discord (+20%) → Instagram
        2s in → 5s show → 2s out → 20s hidden */
     #staticSlideMenu{
-      position: fixed; bottom:24px; right:24px; z-index:9999;
+      position:fixed; bottom:24px; right:24px; z-index:9999;
       width:100px; height:100px; display:flex; align-items:center; justify-content:center;
       opacity:0; transform:translateX(120px) scale(.96); pointer-events:none;
       will-change:transform,opacity;
@@ -48,11 +68,44 @@
     @keyframes slideInRight2s{ from{opacity:0; transform:translateX(120px) scale(.96)} to{opacity:1; transform:translateX(0) scale(1)} }
     @keyframes slideOutRight2s{ from{opacity:1; transform:translateX(0) scale(1)} to{opacity:0; transform:translateX(120px) scale(.96)} }
 
-    /* Y+U+I global toggle for menus */
-    .menus-hidden #staticMenu,
-    .menus-hidden #staticSlideMenu{
-      opacity:0; transform: translateY(10px) scale(.98); visibility:hidden;
+    /* Top-right Options menu (favicon/title switcher) */
+    #topRightMenuWrap{
+      position:fixed; top:10px; right:10px; z-index:100000;
+      transition:opacity .35s ease, transform .35s ease, visibility .35s ease;
+      font-family:inherit;
     }
+    #menuButton{
+      appearance:none; border:0; cursor:pointer;
+      background:#111; color:#0ff; padding:10px 14px; border-radius:10px;
+      font-weight:700; box-shadow:0 0 10px rgba(0,255,255,.35);
+    }
+    #dropdown{
+      position:absolute; right:0; top:44px; min-width:280px;
+      background:#0b0b0b; color:#eaffff; border-radius:12px;
+      box-shadow:0 10px 24px rgba(0,0,0,.4); padding:10px; display:none;
+    }
+    #dropdown button{
+      width:100%; text-align:left; background:transparent; color:inherit;
+      border:0; padding:10px 12px; border-radius:8px; cursor:pointer;
+    }
+    #dropdown button:hover{ background:rgba(0,255,255,.08); }
+    #dropdown .opt-title{ font-weight:800; margin-bottom:2px; }
+    #dropdown small{ display:block; opacity:.75; font-size:11px; line-height:1.35; }
+    #restoreHint{
+      display:none; position:fixed; top:12px; right:12px; z-index:100000;
+      background:#111; color:#fff; padding:8px 12px; border-radius:10px; font-size:12px;
+      box-shadow:0 0 10px rgba(255,255,255,.2);
+    }
+
+    /* Hide menus via Y+U+I */
+    .menus-hidden #staticMenu,
+    .menus-hidden #staticSlideMenu,
+    .menus-hidden #topRightMenuWrap{
+      opacity:0; transform:translateY(10px) scale(.98); visibility:hidden;
+    }
+
+    /* Hidden SEO block (for crawlers; content is generic but harmless) */
+    .seo-hidden{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
   </style>
 </head>
 <body>
@@ -62,7 +115,7 @@
     <span id="closeStaticMenu" role="button" tabindex="0" aria-label="Hide Static Menu for 3 minutes">✕</span>
   </div>
 
-  <!-- Bottom-right rotating icon (Google Form → Discord → Instagram) -->
+  <!-- Rotating quick link: Google Form → Discord → Instagram -->
   <a id="staticSlideMenu" href="https://sites.google.com/view/staticquasar931/google-form" target="_blank" rel="noopener"
      aria-label="Rotating quick link: Google Form, Discord, or Instagram">
     <img
@@ -71,11 +124,49 @@
       loading="lazy" decoding="async" referrerpolicy="no-referrer">
   </a>
 
-  <!-- IMPORTANT: GitHub wrapper must iframe the local game.html -->
-  <iframe id="gameFrame" src="game.html" frameborder="0" scrolling="no" allowfullscreen="true" title="Game frame"></iframe>
+  <!-- Top-right: Favicon/Title Options -->
+  <div id="topRightMenuWrap" aria-label="Options menu (favicon & title)">
+    <button id="menuButton" aria-haspopup="true" aria-expanded="false">☰ Options</button>
+    <div id="dropdown" role="menu" aria-label="Options dropdown">
+      <div style="padding:8px 10px 2px; font-size:12px; opacity:.85;">
+        You will only see these favicon/title effects when playing directly on this page —
+        <a id="liveHereLink" href="#" target="_blank" rel="noopener" style="color:#6cf;text-decoration:underline;">open live</a>.
+      </div>
+      <hr style="opacity:.15;border:none;border-top:1px solid #ffffff22;margin:8px 0;">
+      <button id="optMainFavicon" role="menuitem">
+        <div class="opt-title">Use/Keep Main Favicon</div>
+        <small>Sets the game’s favicon (read from game.html when possible) and original title.</small>
+      </button>
+      <button id="optAeries" role="menuitem">
+        <div class="opt-title">Switch to “Aeries Student Dashboard”</div>
+        <small>Changes page title & favicon to the Aeries student variant.</small>
+      </button>
+      <button id="optHideMenu" role="menuitem">
+        <div class="opt-title">Hide This Menu</div>
+        <small>Hides the button & dropdown. Press <b>O+P</b> to bring it back.</small>
+      </button>
+    </div>
+  </div>
+  <div id="restoreHint" aria-live="polite">Menu hidden — press <b>O+P</b> to show</div>
+
+  <!-- The wrapper MUST iframe /game.html (same repo) -->
+  <iframe id="gameFrame" src="game.html" frameborder="0" scrolling="no" allowfullscreen="true"
+          title="Game frame — fullscreen wrapper"></iframe>
+
+  <!-- Hidden SEO (generic; the real SEO is pulled from game.html if same-origin) -->
+  <div class="seo-hidden" aria-hidden="true">
+    <h1>Unblocked Fullscreen Game Wrapper</h1>
+    <p>This GitHub page loads <strong>game.html</strong> in an iframe and mirrors its title, icon, and metadata when allowed. Optimized for Chromebook/PC.</p>
+  </div>
 
   <script>
-    // Leave warning (optional; remove if you don't want it)
+    // Canonical and OG URL = this page
+    const here = location.href.split('#')[0];
+    document.getElementById('canonicalLink').href = here;
+    document.getElementById('ogUrl').setAttribute('content', here);
+    document.getElementById('liveHereLink').href = here;
+
+    // Leave warning
     window.onbeforeunload = () => "Are you sure you want to leave? Your progress may not be saved.";
 
     /* --- Static Menu close/return (3 minutes) --- */
@@ -108,8 +199,6 @@
       id: "instagram"
     };
     const ROTATION = [FORM, DISCORD, INSTA];
-
-    // Timing: 2s in → 5s visible → 2s out → 20s hidden
     const T_IN=2000, T_SHOW=5000, T_OUT=2000, T_HIDDEN=20000;
 
     function preload(src){ return new Promise(res => { const i=new Image(); i.onload=i.onerror=res; i.src=src; }); }
@@ -143,6 +232,114 @@
       addEventListener('keydown', e => { down.add((e.key||'').toLowerCase()); check(); });
       addEventListener('keyup',   e => { down.delete((e.key||'').toLowerCase()); });
       addEventListener('blur', () => down.clear());
+    })();
+
+    /* ====== FAVICON SWITCHER (filled with actual info when possible) ====== */
+    (function faviconSwitcher(){
+      const AERIES_ICON  = "https://res.cloudinary.com/dcsrqennd/image/upload/v1758856727/Aeries_Favicon_Unblocked_StaticQuasar931_zkdjbd.webp";
+      const AERIES_TITLE = "Aeries Student Dashboard";
+
+      function setFavicon(url){
+        let link = document.querySelector('link#dynamicFavicon[rel="icon"]')
+                || document.querySelector('link[rel="icon"]');
+        if (!link){
+          link = document.createElement('link');
+          link.rel = 'icon';
+          link.id  = 'dynamicFavicon';
+          document.head.appendChild(link);
+        }
+        try {
+          const isWebp = /\.webp(\?|$)/i.test(url);
+          const isPng  = /\.png(\?|$)/i.test(url);
+          link.type = isWebp ? 'image/webp' : (isPng ? 'image/png' : '');
+        } catch(_) {}
+        link.href = url;
+      }
+      function closeDropdown(dd,btn){ dd.style.display='none'; btn.setAttribute('aria-expanded','false'); }
+      function toggleDropdown(dd,btn){ const open = dd.style.display==='block'; dd.style.display=open?'none':'block'; btn.setAttribute('aria-expanded', String(!open)); }
+
+      const wrap    = document.getElementById('topRightMenuWrap');
+      const btn     = document.getElementById('menuButton');
+      const dd      = document.getElementById('dropdown');
+      const optMain = document.getElementById('optMainFavicon');
+      const optAer  = document.getElementById('optAeries');
+      const optHide = document.getElementById('optHideMenu');
+      const restore = document.getElementById('restoreHint');
+
+      let MAIN_ICON       = document.getElementById('dynamicFavicon')?.href || '';
+      let ORIGINAL_TITLE  = document.title;
+
+      // Try to pull favicon/title/description/og from the inner game (same-origin)
+      const frame = document.getElementById('gameFrame');
+      frame.addEventListener('load', () => {
+        try {
+          const d = frame.contentDocument || frame.contentWindow.document;
+          if (!d) return;
+
+          const innerTitle = d.title?.trim();
+          if (innerTitle) {
+            ORIGINAL_TITLE = innerTitle + " | StaticQuasar931";
+            document.title = ORIGINAL_TITLE;
+            document.getElementById('ogTitle').setAttribute('content', ORIGINAL_TITLE);
+          }
+
+          const innerDesc = d.querySelector('meta[name="description"]')?.content?.trim();
+          if (innerDesc) {
+            document.getElementById('metaDescription').setAttribute('content', innerDesc);
+            document.getElementById('ogDesc').setAttribute('content', innerDesc);
+          }
+
+          const innerKeywords = d.querySelector('meta[name="keywords"]')?.content?.trim();
+          if (innerKeywords) {
+            document.getElementById('metaKeywords').setAttribute('content', innerKeywords);
+          }
+
+          const innerIcon = d.querySelector('link[rel="icon"], link[rel="shortcut icon"]')?.href;
+          if (innerIcon) {
+            MAIN_ICON = innerIcon;
+            setFavicon(MAIN_ICON);
+          }
+
+          const ogImg = d.querySelector('meta[property="og:image"]')?.content;
+          if (ogImg) {
+            document.getElementById('ogImage').setAttribute('content', ogImg);
+            document.getElementById('twImage').setAttribute('content', ogImg);
+            document.getElementById('ogImageAlt').setAttribute('content', d.title ? d.title + " — banner" : "Game banner");
+            document.getElementById('twImageAlt').setAttribute('content', d.title ? d.title + " — banner" : "Game banner");
+          }
+        } catch(e){ /* cross-origin or no access */ }
+      });
+
+      // Wire up menu
+      btn.addEventListener('click', (e)=>{ e.stopPropagation(); toggleDropdown(dd, btn); });
+      document.addEventListener('click', ()=> closeDropdown(dd, btn));
+      document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') closeDropdown(dd, btn); });
+
+      optMain.addEventListener('click', ()=>{
+        if (MAIN_ICON) setFavicon(MAIN_ICON);
+        if (ORIGINAL_TITLE) document.title = ORIGINAL_TITLE;
+        closeDropdown(dd, btn);
+      });
+
+      optAer.addEventListener('click', ()=>{
+        document.title = AERIES_TITLE;
+        setFavicon(AERIES_ICON);
+        closeDropdown(dd, btn);
+      });
+
+      optHide.addEventListener('click', ()=>{
+        wrap.style.display = 'none';
+        restore.style.display = 'block';
+        closeDropdown(dd, btn);
+        setTimeout(()=>{ restore.style.display = 'none'; }, 4000);
+      });
+
+      // Restore with O + P
+      const down = new Set();
+      function checkRestore(){ if (down.has('o') && down.has('p')) { wrap.style.display='block'; restore.style.display='none'; } }
+      window.addEventListener('keydown', (e)=>{ down.add(e.key.toLowerCase()); checkRestore(); });
+      window.addEventListener('keyup',   (e)=>{ down.delete(e.key.toLowerCase()); });
+      window.addEventListener('blur',    ()=> down.clear());
     })();
   </script>
 </body>
