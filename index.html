@@ -1,54 +1,25 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 <head>
   <!-- Charset & Viewport -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Canonical (GitHub canonical) & Robots -->
-  <link rel="canonical" href="https://staticquasar931.github.io/Cluster-Rush/" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <!-- Title (kept simple per your note) -->
+  <title>Google</title>
 
-  <!-- Title -->
-  <title>Cluster Rush Unblocked | StaticQuasar931</title>
-
-  <!-- Favicon -->
-  <link id="dynamicFavicon" rel="icon" href="https://res.cloudinary.com/dcsrqennd/image/upload/v1758856845/Cluster_Rush_Favicon_StaticQuasar931_u9n1dg.jpg" />
-
-  <!-- Primary SEO -->
-  <meta name="description" content="Play Cluster Rush — the chaotic truck-jumping platformer. Leap across speeding convoys, time perfect jumps, and finish levels fast. Free, fullscreen, and school-safe on Chromebook, PC, and mobile." />
-  <meta name="keywords" content="Cluster Rush, Cluster Rush unblocked, truck jumping game, truck parkour, browser platformer, speedrun platformer, school safe games, Chromebook games, StaticQuasar931, staticquasar, static 931, staticq931, unblocked games at school" />
-  <meta name="theme-color" content="#000000" />
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Cluster Rush Unblocked | StaticQuasar931" />
-  <meta property="og:description" content="Jump across speeding trucks in this fast, chaotic platformer — free, fullscreen, and school-safe." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://staticquasar931.github.io/Cluster-Rush/" />
-  <meta property="og:image" content="https://res.cloudinary.com/dcsrqennd/image/upload/v1758856306/Cluster_Rush_StaticQuasar931_xxv8sp.webp" />
-  <meta property="og:image:alt" content="Cluster Rush banner — player mid-jump across moving trucks (StaticQuasar931)" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://res.cloudinary.com/dcsrqennd/image/upload/v1758856306/Cluster_Rush_StaticQuasar931_xxv8sp.webp" />
-  <meta name="twitter:image:alt" content="Cluster Rush banner — player mid-jump across moving trucks (StaticQuasar931)" />
-
-  <!-- Preload hero and rotating icons -->
-  <link rel="preload" as="image" href="https://res.cloudinary.com/dcsrqennd/image/upload/v1758856306/Cluster_Rush_StaticQuasar931_xxv8sp.webp" />
+  <!-- Preload rotating icon images -->
   <link rel="preload" as="image" href="https://res.cloudinary.com/dcsrqennd/image/upload/v1747533056/raw_um4pvq.png">
   <link rel="preload" as="image" href="https://res.cloudinary.com/dcsrqennd/image/upload/v1758072526/Join_Our_Discord_StaticQuassar931_lcplrf.png">
   <link rel="preload" as="image" href="https://res.cloudinary.com/dcsrqennd/image/upload/v1747533158/raw_cw34yi.png">
 
   <style>
-    html, body { margin:0; padding:0; height:100%; background:#000; overflow:hidden;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Noto Sans", Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; background: #000; overflow: hidden; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
 
     /* Fullscreen game */
-    iframe#gameFrame { width:100vw; height:100vh; border:0; display:block; background:#000; }
-
-    /* Hidden SEO block (content for crawlers; not visible to users) */
-    .seo-hidden { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
-
-    /* ===== Static menu & slider (replaced with your PUBG Mini versions) ===== */
+    iframe#gameFrame { width: 100vw; height: 100vh; border: 0; display: block; background: #000; }
 
     /* Static menu (top-left) */
     #staticMenu{
@@ -82,27 +53,10 @@
     .menus-hidden #staticSlideMenu{
       opacity:0; transform: translateY(10px) scale(.98); visibility:hidden;
     }
-
-    /* Fallback message (if iframe blocked) */
-    .fallback{ position:fixed; inset:0; display:none; place-items:center; background:#020202; color:#d9f7ff; padding:24px; text-align:center; }
-    .fallback a{ color:#9bffb7; text-decoration:underline }
   </style>
 </head>
 <body>
-  <!-- Game Embed -->
-  <iframe
-    id="gameFrame"
-    src="https://staticquasar931.github.io/Cluster-Rush/"
-    allowfullscreen
-    title="Cluster Rush — unblocked fullscreen by StaticQuasar931"
-    loading="eager"
-    scrolling="no"
-    allow="autoplay; fullscreen; gamepad; xr-spatial-tracking; cross-origin-isolated"
-    referrerpolicy="no-referrer-when-downgrade"
-    sandbox="allow-forms allow-same-origin allow-scripts allow-pointer-lock allow-popups"
-  ></iframe>
-
-  <!-- Static Branding Menu (replaced) -->
+  <!-- Static Branding Menu -->
   <div id="staticMenu" aria-label="Static menu">
     <a href="https://sites.google.com/view/staticquasar931/gm3z" target="_blank" rel="noopener">More Unblocked Games by Static</a>
     <span id="closeStaticMenu" role="button" tabindex="0" aria-label="Hide Static Menu for 3 minutes">✕</span>
@@ -117,48 +71,12 @@
       loading="lazy" decoding="async" referrerpolicy="no-referrer">
   </a>
 
-  <!-- Hidden SEO -->
-  <div class="seo-hidden" aria-hidden="true">
-    <h1>Cluster Rush – Unblocked Truck-Jumping Platformer</h1>
-    <p><strong>Cluster Rush</strong> is the original truck-jumping chaos platformer: time your leaps, keep momentum, and avoid falling as convoys speed beneath you. Play free in your browser on the StaticQuasar931 site — fully <strong>unblocked</strong> and <strong>school-safe</strong> for Chromebook, PC, and mobile.</p>
-    <ul>
-      <li>🚚 Leap from truck to truck with precise timing</li>
-      <li>⚡ Fast, arcade-style runs with instant retries</li>
-      <li>💻 Chromebook, PC, and mobile compatible</li>
-      <li>🕹️ Free, fullscreen, no download</li>
-    </ul>
-  </div>
+  <!-- IMPORTANT: GitHub wrapper must iframe the local game.html -->
+  <iframe id="gameFrame" src="game.html" frameborder="0" scrolling="no" allowfullscreen="true" title="Game frame"></iframe>
 
   <script>
-    // Leave/reload confirmation
-    window.onbeforeunload = function (e) {
-      e = e || window.event;
-      const msg = "Are you sure you want to leave? Your session may be interrupted.";
-      if (e) e.returnValue = msg;
-      return msg;
-    };
-
-    // Fullscreen fit & mobile 100vh fix + fallback
-    (function(){
-      const frame = document.getElementById('gameFrame');
-      const setSize = () => {
-        const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-        const vh = (window.visualViewport ? window.visualViewport.height : Math.max(document.documentElement.clientHeight, window.innerHeight || 0));
-        frame.style.width = vw + 'px';
-        frame.style.height = vh + 'px';
-      };
-      setSize();
-      window.addEventListener('resize', setSize, {passive:true});
-      if (window.visualViewport) window.visualViewport.addEventListener('resize', setSize, {passive:true});
-
-      frame.addEventListener('error', () => { document.getElementById('fallback').style.display = 'grid'; });
-      setTimeout(()=>{
-        try{
-          const hasContent = frame.contentWindow && frame.contentDocument && frame.contentDocument.readyState !== 'uninitialized';
-          if(!hasContent) document.getElementById('fallback').style.display = 'grid';
-        }catch(err){/* cross-origin; ignore */}
-      }, 3000);
-    })();
+    // Leave warning (optional; remove if you don't want it)
+    window.onbeforeunload = () => "Are you sure you want to leave? Your progress may not be saved.";
 
     /* --- Static Menu close/return (3 minutes) --- */
     (function initStaticMenuClose(){
@@ -170,8 +88,7 @@
       btn.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') btn.click(); });
     })();
 
-    /* --- Slide popup rotation (Google Form → Discord → Instagram)
-           Timing: 2s in → 5s visible → 2s out → 20s hidden --- */
+    /* --- Slide popup rotation (Google Form → Discord → Instagram) --- */
     const FORM  = {
       src: "https://res.cloudinary.com/dcsrqennd/image/upload/v1747533056/raw_um4pvq.png",
       alt: "Open StaticQuasar931 Google Form (feedback & requests) — opens in a new tab",
@@ -192,7 +109,8 @@
     };
     const ROTATION = [FORM, DISCORD, INSTA];
 
-    const T_IN=2000, T_SHOW=5000, T_OUT=2000, T_HIDDEN=20000; // ms
+    // Timing: 2s in → 5s visible → 2s out → 20s hidden
+    const T_IN=2000, T_SHOW=5000, T_OUT=2000, T_HIDDEN=20000;
 
     function preload(src){ return new Promise(res => { const i=new Image(); i.onload=i.onerror=res; i.src=src; }); }
     function restartAnim(el, cls){ el.classList.remove("slideInRight2s","slideOutRight2s"); void el.offsetWidth; el.classList.add(cls); }
@@ -229,4 +147,3 @@
   </script>
 </body>
 </html>
-
