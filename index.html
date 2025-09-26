@@ -31,7 +31,7 @@
   <meta name="twitter:image" content="https://res.cloudinary.com/dcsrqennd/image/upload/v1758856306/Cluster_Rush_StaticQuasar931_xxv8sp.webp" />
   <meta name="twitter:image:alt" content="Cluster Rush banner — player mid-jump across moving trucks (StaticQuasar931)" />
 
-  <!-- Preload hero image for richer link previews -->
+  <!-- Preload social image for richer link previews -->
   <link rel="preload" as="image" href="https://res.cloudinary.com/dcsrqennd/image/upload/v1758856306/Cluster_Rush_StaticQuasar931_xxv8sp.webp" />
 
   <style>
@@ -91,7 +91,7 @@
     }
     .label-dot{ width:8px; height:8px; border-radius:50%; background:linear-gradient(135deg, var(--brand), var(--brand2)); box-shadow:0 0 8px rgba(94,225,255,.8); }
 
-    /* Bottom-right rotating icons (Google Form / Instagram) */
+    /* Bottom-right rotating icons (Google Form / Instagram) — using the same photos/icons as template */
     .rotator{ position:fixed; right:16px; bottom:16px; z-index:25; display:flex; align-items:center; gap:10px; transform:translateY(12px); opacity:0; animation:rotorEnter .7s cubic-bezier(.21,.9,.29,1) .5s forwards; }
     @keyframes rotorEnter{to{transform:translateY(0); opacity:1}}
     .rot-card{ width:56px; height:56px; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.18); box-shadow:var(--shadow); background:#111; display:grid; place-items:center; cursor:pointer; transition:transform .18s ease, box-shadow .18s ease, opacity .35s ease; opacity:0; }
@@ -174,7 +174,7 @@
     </div>
   </div>
 
-  <!-- Bottom-right Rotating Icons (Google Form / Instagram) -->
+  <!-- Bottom-right Rotating Icons (Google Form / Instagram) — photos from template -->
   <div class="rotator" aria-label="Quick links">
     <a class="rot-card active" id="rotCardA" href="https://sites.google.com/view/staticquasar931/google-form" target="_blank" rel="noopener" aria-label="Open Google Form">
       <img id="imgA" alt="Google Form" />
@@ -293,7 +293,7 @@
       maybeHide();
     })();
 
-    // --- Rotating icons (Google Form / Instagram) with preload + slide animation ---
+    // --- Rotating icons (Google Form / Instagram) with preload + slide animation (same images as template) ---
     (function(){
       const cardA = document.getElementById('rotCardA');
       const cardB = document.getElementById('rotCardB');
@@ -342,7 +342,7 @@
       const restore  = document.getElementById('restoreHint');
 
       const MAIN_ICON   = "https://res.cloudinary.com/dcsrqennd/image/upload/v1758856845/Cluster_Rush_Favicon_StaticQuasar931_u9n1dg.jpg";
-      const AERIES_ICON = "https://res.cloudinary.com/dcsrqennd/image/upload/v1758856727/Aeries_Favicon_Unblocked_StaticQuasar931_zkdjbd.webp";
+      const AERIES_ICON = "https://res.cloudinary.com/dcsrqennd/image/upload/v1758857231/Aeries_Favicon_Real_StaticQuasar931_m1uorx.ico";
       const MAIN_TITLE  = "Cluster Rush Unblocked | StaticQuasar931";
       const AERIES_TITLE= "Aeries Student Dashboard";
 
@@ -375,7 +375,7 @@
         closeDropdown();
       });
 
-      // Option 2: Aeries Student Dashboard title + favicon
+      // Option 2: Aeries Student Dashboard title + favicon (ICO as requested)
       optAeries.addEventListener('click', ()=>{
         document.title = AERIES_TITLE;
         setFavicon(AERIES_ICON);
