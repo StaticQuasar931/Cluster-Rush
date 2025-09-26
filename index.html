@@ -1,29 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Google</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Primary SEO -->
+  <title>Play Cluster Rush – Unblocked Game (Works at School) | StaticQuasar931</title>
+  <meta name="description" content="Play Cluster Rush unblocked, school-safe, and working anywhere. Fullscreen, fast-loading embed with clean controls. Try backups, tips, and more unblocked games by StaticQuasar931." />
+  <link rel="canonical" href="https://staticquasar931.github.io/Cluster-Rush/" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Cluster Rush – Unblocked & School-Safe" />
+  <meta property="og:description" content="Play Cluster Rush in fullscreen. 100% school-safe and unblocked. Works on Chromebook, desktop, and mobile." />
+  <meta property="og:url" content="https://staticquasar931.github.io/Cluster-Rush/" />
+  <meta property="og:image" content="https://res.cloudinary.com/dcsrqennd/image/upload/v1758856306/Cluster_Rush_StaticQuasar931_xxv8sp.webp" />
+  <meta property="og:image:alt" content="Cluster Rush gameplay cover art" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cluster Rush – Unblocked & School-Safe" />
+  <meta name="twitter:description" content="Play Cluster Rush in fullscreen. 100% school-safe and unblocked." />
+  <meta name="twitter:image" content="https://res.cloudinary.com/dcsrqennd/image/upload/v1758856306/Cluster_Rush_StaticQuasar931_xxv8sp.webp" />
+
+  <!-- Indexing -->
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+
+  <!-- Keywords (include variants per user preferences) -->
+  <meta name="keywords" content="Cluster Rush, Cluster Rush unblocked, Cluster Rush at school, Cluster Rush school, Cluster Rush working at school, Cluster Rush game, Cluster Rush g@me, unblocked Cluster Rush, play Cluster Rush, StaticQuasar931, staticquasar, static 931, staticq, staticq931, 931 games, unbl0cked Cluster Rush, school-safe Cluster Rush, Chromebook games, browser game, action game" />
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
+    :root{
+      --brand:#5ee1ff;
+      --brand2:#9bffb7;
+      --accent:#ffe66d;
+      --bg:#000;
+      --panel:#0b0b0f;
+      --glow:0 0 12px rgba(94,225,255,.65), 0 0 32px rgba(155,255,183,.35);
+      --shadow:0 10px 30px rgba(0,0,0,.4);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      background:var(--bg);
+      color:#e8f3ff;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+      overflow:hidden;
     }
 
-    body {
-      overflow: hidden;
-      background: #000;
+    /* Fullscreen game */
+    #gameWrap{position:fixed; inset:0; background:#000;}
+    iframe#gameFrame{
+      width:100vw; height:100vh; border:0; display:block; background:#000;
     }
 
-    iframe {
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
+    /* Top-left Static Menu (with small link + label block) */
+    .static-menu{
+      position:fixed; top:12px; left:12px; z-index:30;
+      display:flex; flex-direction:column; gap:8px;
+      transform:translateX(-18px); opacity:0; animation:menuEnter .8s cubic-bezier(.21,.9,.29,1) .25s forwards;
+    }
+    @keyframes menuEnter{to{transform:translateX(0); opacity:1}}
+
+    .tiny-link{
+      position:relative; display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px; font-size:12px; line-height:1;
+      background:linear-gradient(135deg, rgba(20,20,28,.8), rgba(20,20,28,.55));
+      border:1px solid rgba(94,225,255,.35);
+      border-radius:10px; box-shadow:var(--glow), var(--shadow);
+      text-decoration:none; color:#e8f3ff; backdrop-filter:blur(6px);
+      transition:transform .15s ease;
+      overflow:hidden;
+    }
+    .tiny-link:hover{transform:translateY(-1px)}
+    .tiny-link .twinkle{
+      position:absolute; inset:-2px; pointer-events:none;
+      background: radial-gradient(ellipse at top left, rgba(255,255,255,.35), transparent 45%),
+                  radial-gradient(ellipse at bottom right, rgba(94,225,255,.25), transparent 50%);
+      mix-blend-mode:screen; opacity:0; animation:twinkle 8s ease-in-out infinite 2s;
+    }
+    @keyframes twinkle{
+      0%{opacity:0} 8%{opacity:1} 16%{opacity:0} 100%{opacity:0}
+    }
+    .tiny-link .close{
+      margin-left:6px; font-size:12px; opacity:.8; cursor:pointer; user-select:none;
+      padding:2px 6px; border-radius:6px; border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.06);
+    }
+
+    .label-block{
+      display:flex; align-items:center; gap:8px;
+      padding:8px 12px; font-size:12.5px;
+      background:linear-gradient(135deg, rgba(20,20,28,.9), rgba(20,20,28,.6));
+      border:1px solid rgba(155,255,183,.35);
+      color:#eafff1; border-radius:12px; box-shadow:var(--glow), var(--shadow);
+      backdrop-filter:blur(6px);
+    }
+    .label-dot{
+      width:8px; height:8px; border-radius:50%; background:linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow:0 0 8px rgba(94,225,255,.8);
+    }
+
+    /* Bottom-right rotating icons (Google Form / Instagram) */
+    .rotator{
+      position:fixed; right:16px; bottom:16px; z-index:25;
+      display:flex; align-items:center; gap:10px;
+      transform:translateY(12px); opacity:0; animation:rotorEnter .7s cubic-bezier(.21,.9,.29,1) .5s forwards;
+    }
+    @keyframes rotorEnter{to{transform:translateY(0); opacity:1}}
+
+    .rot-card{
+      width:56px; height:56px; border-radius:14px; overflow:hidden;
+      border:1px solid rgba(255,255,255,.18); box-shadow:var(--shadow);
+      background:#111; display:grid; place-items:center; cursor:pointer;
+      transition:transform .18s ease, box-shadow .18s ease, opacity .35s ease;
+      opacity:0;
+    }
+    .rot-card.active{opacity:1}
+    .rot-card:hover{transform:translateY(-2px)}
+    .rot-card img{width:100%; height:100%; object-fit:cover; display:block}
+
+    /* A subtle slide when switching */
+    .rot-card.slide-out{animation:slideOut .35s ease forwards}
+    .rot-card.slide-in{animation:slideIn .35s ease forwards}
+    @keyframes slideOut{to{transform:translateY(10px); opacity:0}}
+    @keyframes slideIn{from{transform:translateY(-10px); opacity:0} to{transform:translateY(0); opacity:1}}
+
+    /* Hidden SEO block */
+    .seo-hidden{
+      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+    }
+
+    /* Fallback message (if iframe blocked) */
+    .fallback{
+      position:fixed; inset:0; display:none; place-items:center; background:#020202; color:#d9f7ff;
+      padding:24px; text-align:center;
+    }
+    .fallback a{color:#9bffb7; text-decoration:underline}
+
+    /* Small responsive nits */
+    @media (max-width:540px){
+      .tiny-link{font-size:11px}
+      .label-block{font-size:11.5px}
+      .rot-card{width:52px; height:52px}
     }
   </style>
-  <body>
-    <iframe src="game.html" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
-  </body>
+</head>
+<body>
+  <!-- Game -->
+  <div id="gameWrap" role="main" aria-label="Cluster Rush game container">
+    <iframe
+      id="gameFrame"
+      src="game.html"
+      title="Cluster Rush (Fullscreen Embed)"
+      loading="eager"
+      allowfullscreen
+      scrolling="no"
+      allow="autoplay; fullscreen; gamepad; xr-spatial-tracking; cross-origin-isolated"
+      referrerpolicy="no-referrer-when-downgrade"
+      sandbox="allow-forms allow-same-origin allow-scripts allow-pointer-lock allow-popups"
+    ></iframe>
+  </div>
+
+  <!-- Top-left Static Menu (per approved original style) -->
+  <div class="static-menu" aria-live="polite">
+    <!-- Small visible link with twinkle + close + auto-return after 3 min -->
+    <a id="moreLink" class="tiny-link" href="https://sites.google.com/view/staticquasar931/gm3z" target="_blank" rel="noopener">
+      <span>More Unblocked Games by Static</span>
+      <span class="close" id="linkCloseBtn" aria-label="Hide for now" title="Hide for now">✕</span>
+      <span class="twinkle" aria-hidden="true"></span>
+    </a>
+    <!-- Second block shows game label using 'alternate (unblocked)' wording -->
+    <div class="label-block" id="labelBlock" aria-label="Page label">
+      <span class="label-dot" aria-hidden="true"></span>
+      <strong>Cluster Rush – alternate (unblocked)</strong>
+    </div>
+  </div>
+
+  <!-- Bottom-right Rotating Icons (Google Form / Instagram) -->
+  <div class="rotator" aria-label="Quick links">
+    <a class="rot-card active" id="rotCardA" href="https://sites.google.com/view/staticquasar931/google-form" target="_blank" rel="noopener" aria-label="Open Google Form">
+      <img id="imgA" alt="Google Form" />
+    </a>
+    <a class="rot-card" id="rotCardB" href="https://www.instagram.com/freeschoolgamepage/" target="_blank" rel="noopener" aria-label="Open Instagram">
+      <img id="imgB" alt="Instagram" />
+    </a>
+  </div>
+
+  <!-- Fallback if iframe fails -->
+  <div id="fallback" class="fallback">
+    <div>
+      <h1>Cluster Rush</h1>
+      <p>It looks like the game couldn't load in this environment. You can open the canonical page directly here:</p>
+      <p><a href="https://staticquasar931.github.io/Cluster-Rush/" target="_blank" rel="noopener">Open Cluster Rush (Canonical)</a></p>
+    </div>
+  </div>
+
+  <!-- Hidden SEO Content (~200+ words, absolute internal links, brand terms & variants) -->
+  <section class="seo-hidden" aria-hidden="true">
+    <h2>Play Cluster Rush Unblocked at School (Works Anywhere)</h2>
+    <p>
+      Enjoy <strong>Cluster Rush</strong> as a fast, reflex-based action game you can play in fullscreen, unblocked, and
+      <em>working at school</em> or work. This page is built for quick loading and compatibility on Chromebook, Windows,
+      Mac, and mobile. If your network filters block some sites, try the canonical version at
+      https://staticquasar931.github.io/Cluster-Rush/ or browse more titles from Static at
+      <a href="https://sites.google.com/view/staticquasar931/gm3z">StaticQuasar931 Games</a>.
+      For feedback or requests, use our <a href="https://sites.google.com/view/staticquasar931/google-form">Google Form</a>
+      or follow updates on <a href="https://www.instagram.com/freeschoolgamepage/">Instagram</a>.
+    </p>
+    <p>
+      Keywords covered for better discovery: Cluster Rush unblocked, Cluster Rush school, Cluster Rush working at school,
+      Cluster Rush game, Cluster Rush g@me, unbl0cked Cluster Rush, school-safe action game, Chromebook games, browser action,
+      and more. We also include brand phrases like StaticQuasar931, static 931, staticq, staticq931, and staticquasar to
+      help you find our pages quickly. Looking for other action or parkour-style games? Visit our main list at
+      <a href="https://sites.google.com/view/staticquasar931/gm3z">StaticQuasar931 game list</a>.
+    </p>
+    <p>
+      Tip: enable fullscreen for the best experience. This Cluster Rush embed is tuned for maximum compatibility,
+      with auto-resize and a polished interface, while keeping your focus on gameplay. If one version ever fails to load,
+      explore our backups from the main list and try again. Have fun, and stay safe online!
+    </p>
+  </section>
+
+  <script>
+    // --- Leave / reload warning (per user preference) ---
+    window.onbeforeunload = function(e){
+      // Show standard confirmation dialog on navigate/refresh/close:
+      e = e || window.event;
+      if (e) e.returnValue = '';
+      return '';
+    };
+
+    // --- Fullscreen fit & mobile 100vh fix ---
+    (function(){
+      const frame = document.getElementById('gameFrame');
+      const setSize = () => {
+        // Use visualViewport when available to avoid URL bar vh issues on mobile
+        const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        const vh = (window.visualViewport ? window.visualViewport.height : Math.max(document.documentElement.clientHeight, window.innerHeight || 0));
+        frame.style.width = vw + 'px';
+        frame.style.height = vh + 'px';
+      };
+      setSize();
+      window.addEventListener('resize', setSize, {passive:true});
+      if (window.visualViewport) window.visualViewport.addEventListener('resize', setSize, {passive:true});
+
+      // Fallback display if blocked
+      frame.addEventListener('error', () => {
+        document.getElementById('fallback').style.display = 'grid';
+      });
+      setTimeout(()=>{
+        // If still blank after a couple seconds, show gentle fallback
+        try{
+          const hasContent = frame.contentWindow && frame.contentDocument && frame.contentDocument.readyState !== 'uninitialized';
+          if(!hasContent) document.getElementById('fallback').style.display = 'grid';
+        }catch(err){/* cross-origin, ignore */}
+      }, 3000);
+    })();
+
+    // --- Top-left "More Unblocked Games" close & auto-return after 3 minutes ---
+    (function(){
+      const KEY='sq931_more_link_hidden_until';
+      const btn = document.getElementById('linkCloseBtn');
+      const link = document.getElementById('moreLink');
+      const restore = () => { link.style.display='inline-flex'; };
+      const maybeHide = () => {
+        const until = parseInt(localStorage.getItem(KEY)||'0',10);
+        const now = Date.now();
+        if (until && now < until){ link.style.display='none'; setTimeout(restore, until - now); }
+      };
+      btn.addEventListener('click', (e)=>{
+        e.preventDefault(); e.stopPropagation();
+        link.style.display='none';
+        // Re-appear after 3 minutes (180000 ms)
+        const until = Date.now()+180000;
+        localStorage.setItem(KEY, String(until));
+        setTimeout(()=>{ link.style.display='inline-flex'; }, 180000);
+      });
+      maybeHide();
+    })();
+
+    // --- Rotating icons (Google Form / Instagram) with preload + slide animation ---
+    (function(){
+      const cardA = document.getElementById('rotCardA');
+      const cardB = document.getElementById('rotCardB');
+      const imgA  = document.getElementById('imgA');
+      const imgB  = document.getElementById('imgB');
+
+      // Preload images (use only the two required per spec)
+      const srcA = 'https://sites.google.com/favicon.ico'; // Google icon placeholder (fast + tiny)
+      const srcB = 'https://static.cdninstagram.com/rsrc.php/v3/yr/r/0sNQZC5Wf0-.png'; // Instagram glyph (tiny)
+      const preload = (url)=> new Promise(res=>{ const i=new Image(); i.onload=res; i.onerror=res; i.src=url; });
+
+      Promise.all([preload(srcA), preload(srcB)]).then(()=>{
+        imgA.src = srcA;
+        imgB.src = srcB;
+        // Start rotation after a short delay so entry animation finishes
+        setTimeout(startRotation, 2200);
+      });
+
+      let showingA = true;
+      function startRotation(){
+        setInterval(()=>{
+          if (showingA){
+            // A -> B
+            cardA.classList.add('slide-out');
+            setTimeout(()=>{
+              cardA.classList.remove('active','slide-out');
+              cardB.classList.add('active','slide-in');
+              setTimeout(()=>cardB.classList.remove('slide-in'), 350);
+            }, 300);
+          }else{
+            // B -> A
+            cardB.classList.add('slide-out');
+            setTimeout(()=>{
+              cardB.classList.remove('active','slide-out');
+              cardA.classList.add('active','slide-in');
+              setTimeout(()=>cardA.classList.remove('slide-in'), 350);
+            }, 300);
+          }
+          showingA = !showingA;
+        }, 6000);
+      }
+    })();
+
+    // --- Optional: gently emphasize label block on first load with a micro pulse ---
+    (function(){
+      const el = document.getElementById('labelBlock');
+      el.animate(
+        [
+          { boxShadow:'var(--glow), var(--shadow)' },
+          { boxShadow:'0 0 24px rgba(255,230,109,.55), var(--shadow)' },
+          { boxShadow:'var(--glow), var(--shadow)' }
+        ],
+        { duration:1400, easing:'ease-in-out', delay:1000 }
+      );
+    })();
+  </script>
+</body>
 </html>
